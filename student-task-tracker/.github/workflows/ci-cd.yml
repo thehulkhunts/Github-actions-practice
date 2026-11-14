@@ -30,13 +30,13 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        working-directory: ./student-task-tracker-demo/Github-actions-practice/student-task-tracker
+        working-directory: student-task-tracker-demo/Github-actions-practice/student-task-tracker
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Run tests
-        working-directory: ./student-task-tracker-demo/Github-actions-practice/student-task-tracker
+        working-directory: student-task-tracker-demo/Github-actions-practice/student-task-tracker
         run: pytest -v
 
   docker:
