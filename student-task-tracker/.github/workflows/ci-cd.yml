@@ -30,7 +30,7 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        working-directory: ./student-task-tracker
+        working-directory: ./student-task-tracker/requirements.txt
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
