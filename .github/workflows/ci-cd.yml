@@ -2,9 +2,7 @@ name: Python app CI and Docker publish
 
 on:
   push:
-    branches: [gha-cicd]
-  pull_request:
-    branches: [master]
+    branches: [gha-cicd, master]
   workflow_dispatch:
 
 permissions:
@@ -83,7 +81,7 @@ jobs:
           docker run -d -p 5000:5000 --name student-task-tracker ${{ env.IMAGE_NAME }}:latest
           sleep 10
           curl -f http://localhost:5000 || exit 1
-          docker stop student-task-tracker
+         dockers rm student-task-tracker
 
       - name: smoke test
         run: |
@@ -93,7 +91,7 @@ jobs:
           curl -f http://localhost:5000/tasks || exit 1
           curl -f http://localhost:5000/live || exit 1
           curl -f http://localhost:5000/ready || exit 1
-          docker stop student-task-tracker
+         docker stop student-task-tracker
 
       - name: Push Docker image
         if: success()
