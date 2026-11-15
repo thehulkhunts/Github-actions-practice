@@ -34,8 +34,25 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r python-app/student-task-tracker/requirements.txt
 
-      - name: Run tests
-        run: pytest -m pytest python-app/student-task-tracker/tests/ 
+      - name: Create test report directory
+        working-directory: python-app/student-task-tracker
+        run: mkdir -p reports
+
+      - name: Run tests and generate HTML report
+        working-directory: python-app/student-task-tracker
+        run: |
+          python -m pytest -v tests/ \
+           --html=reports/pytest-report.html \
+           --self-contained-html
+      
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: student-task-tracker-test-report
+          path: python-app/student-task-tracker/reports/pytest-report.html
+          retention-days: 15
+          if-no-files-found: warn
 
   docker:
     name: Build and publish Docker image
