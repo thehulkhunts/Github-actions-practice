@@ -70,7 +70,7 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push image
+      - name: Build image
         uses: docker/build-push-action@v6
         with:
           context: python-app/student-task-tracker
