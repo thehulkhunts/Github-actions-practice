@@ -13,14 +13,14 @@ permissions:
 
 jobs:
   event-trigger-demo:
-  name: event-trigger-demo
-  runs-on: ubuntu-latest
+    name: event-trigger-demo
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: event-trigger
-      run: |
-        echo "trigger events if i push from gha-cicd, master branches"
-        
-    - name: merge-to-master
-      run: |
-        echo "what if i merge into master? if u merge into master from gha-cicd push event happens"
+    steps:
+      - name: event-trigger
+        run: |
+          echo "trigger events if i push from gha-cicd, master branches"
+
+      - name: merge-to-master
+        run: |
+          echo "what if i merge into master? if u merge into master from gha-cicd push event happens"
