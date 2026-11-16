@@ -13,7 +13,7 @@ permissions:
 
 env:
   DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME}}
-  IMAGE_NAME: ${{ student-task-tracker }}
+  IMAGE_NAME: student-task-tracker
   image_tag: ${{ github.sha }}
 
 jobs:
