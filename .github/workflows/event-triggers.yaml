@@ -1,9 +1,9 @@
 name: event triggers demonstration
 
 on:
-  push: 
-    branches:
-      - gha-cicd
+  # push: 
+  #   branches:
+  #     - gha-cicd
 
   pull_request:
     branches:
