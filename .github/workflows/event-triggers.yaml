@@ -1,0 +1,26 @@
+name: event triggers demonstration
+
+on:
+  push: 
+    branches:
+      - master
+      - gha-cicd
+    paths:
+      - .github/workflows/event-triggers.yaml
+
+permissions:
+  contents: read 
+
+jobs:
+  event-trigger-demo:
+  name: event-trigger-demo
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: event-trigger
+      run: |
+        echo "trigger events if i push from gha-cicd, master branches"
+        
+    - name: merge-to-master
+      run: |
+        echo "what if i merge into master? if u merge into master from gha-cicd push event happens"
