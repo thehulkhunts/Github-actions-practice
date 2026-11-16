@@ -101,7 +101,7 @@ jobs:
         if: success()
         uses: docker/build-push-action@v6
         with:
-          context: ./student-task-tracker/Dockerfile
+          context: ./python-app/student-task-tracker
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:latest
