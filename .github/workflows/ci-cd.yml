@@ -12,7 +12,8 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ${{ vars.DOCKERHUB_USERNAME}}student-task-tracker
+  DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME}}
+  IMAGE_NAME: ${{ student-task-tracker }}
   image_tag: ${{ github.sha }}
 
 jobs:
@@ -75,8 +76,8 @@ jobs:
           context: python-app/student-task-tracker
           push: false
           tags: |
-            ${{ env.IMAGE_NAME }}:latest
-            ${{ env.IMAGE_NAME }}:${{ env.image_tag }}
+            ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.image_tag }}
 
       - name: run docker container
         run: |
@@ -104,5 +105,5 @@ jobs:
           context: ./python-app/student-task-tracker
           push: true
           tags: |
-            ${{ env.IMAGE_NAME }}:latest
-            ${{ env.IMAGE_NAME }}:${{ env.image_tag }}
+            ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.image_tag }}
