@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3-Tier Todo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; }
+    form { display: flex; gap: 8px; margin-bottom: 16px; }
+    input[type=text] { flex: 1; padding: 8px; }
+    li { display: flex; align-items: center; gap: 8px; padding: 6px 0; list-style: none; }
+    li.done span { text-decoration: line-through; color: #888; }
+    li span { flex: 1; cursor: pointer; }
+    ul { padding: 0; }
+  </style>
+</head>
+<body>
+  <h1>Todo List</h1>
+  <p id="status"></p>
+  <form id="form">
+    <input type="text" id="title" placeholder="New task…" required />
+    <button>Add</button>
+  </form>
+  <ul id="list"></ul>
+  <script src="app.js"></script>
+</body>
+</html>
